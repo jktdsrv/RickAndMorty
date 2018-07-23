@@ -5,4 +5,7 @@
     <string name="text_button_login">Login</string>
     <string name="dont_have_account">No tienes cuenta?</string>
     <string name="toolbar_title_createaccount">Crea tu cuenta</string>
+    <string name="menu_search">Search</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_profile">Me</string>
 </resources>
