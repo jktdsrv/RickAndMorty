@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hint_username">Nombre de usuario</string>
+    <string name="hint_pasword">Contraseña</string>
+    <string name="text_button_login">Login</string>
+    <string name="dont_have_account">No tienes cuenta?</string>
+    <string name="toolbar_title_createaccount">Crea tu cuenta</string>
+</resources>
