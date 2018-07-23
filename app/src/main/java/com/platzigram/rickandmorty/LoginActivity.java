@@ -19,4 +19,5 @@ public class LoginActivity extends AppCompatActivity {
         Intent intent = new Intent(this, CreateAccountActivity.class);
         startActivity(intent);
     }
+
 }
