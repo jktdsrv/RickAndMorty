@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "320342444870",
+    "firebase_url": "https://rickandmorty-5ec03.firebaseio.com",
+    "project_id": "rickandmorty-5ec03",
+    "storage_bucket": "rickandmorty-5ec03.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:320342444870:android:9e7f7e0d86e351a8",
+        "android_client_info": {
+          "package_name": "com.platzigram.rickandmorty"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "320342444870-seohmt79c2cf6mlcdrnu5dkkbkp778c1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.platzigram.rickandmorty",
+            "certificate_hash": "f25557dfa7ac89612cf349dd4f9c05795cbf6797"
+          }
+        },
+        {
+          "client_id": "320342444870-serkc8rloi6fsq1eilvok8jleqk9c7q5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqXeovkiaKxiPDtAZOT2y-JGxFlOHepIA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "320342444870-serkc8rloi6fsq1eilvok8jleqk9c7q5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

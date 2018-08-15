@@ -8,4 +8,9 @@
     <string name="menu_search">Search</string>
     <string name="menu_home">Home</string>
     <string name="menu_profile">Me</string>
+    <string name="secondword_detail">Me Gusta</string>
+    <string name="login_error">Ocurrió este error:</string>
+    <string name="hint_title">Título</string>
+    <string name="hint_description">Descripción</string>
+    <string name="text_button_create_post">Crear Post</string>
 </resources>
