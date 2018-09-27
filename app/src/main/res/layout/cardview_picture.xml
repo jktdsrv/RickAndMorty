@@ -12,19 +12,19 @@
         android:layout_height="match_parent">
 
         <ImageView
+            android:id="@+id/picture_card"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/height_cardview"
+            android:layout_height="136dp"
             android:background="@drawable/rym1"
             android:scaleType="centerCrop"
-            android:id="@+id/picture_card"
-            android:transitionName="@string/transitionname_picture"/>
+            android:transitionName="@string/transitionname_picture" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_gravity="bottom"
-            android:paddingLeft="@dimen/activity_vertical_margin"
+            android:paddingStart="@dimen/activity_vertical_margin"
             android:background="@color/backgroundtext_card"
             >
 

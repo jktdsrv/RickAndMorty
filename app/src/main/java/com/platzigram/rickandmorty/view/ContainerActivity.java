@@ -46,6 +46,12 @@ public class ContainerActivity extends AppCompatActivity {
                                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                                 .addToBackStack(null).commit();
                         break;
+                    default:
+                        ProfileFragment anotherHomeFragment = new ProfileFragment();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.container, anotherHomeFragment)
+                                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                                .addToBackStack(null).commit();
+                        break;
 
                 }
 
