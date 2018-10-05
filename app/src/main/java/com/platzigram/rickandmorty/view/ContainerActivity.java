@@ -21,6 +21,11 @@ public class ContainerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_container);
 
+        ProfileFragment anotherHomeFragment = new ProfileFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, anotherHomeFragment)
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                .addToBackStack(null).commit();
+
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigationView);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -43,12 +48,6 @@ public class ContainerActivity extends AppCompatActivity {
                     case R.id.profile:
                         ProfileFragment profileFragment = new ProfileFragment();
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, profileFragment)
-                                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-                                .addToBackStack(null).commit();
-                        break;
-                    default:
-                        ProfileFragment anotherHomeFragment = new ProfileFragment();
-                        getSupportFragmentManager().beginTransaction().replace(R.id.container, anotherHomeFragment)
                                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                                 .addToBackStack(null).commit();
                         break;
