@@ -2,14 +2,18 @@ package com.platzigram.rickandmorty.login.view;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.platzigram.rickandmorty.R;
 import com.platzigram.rickandmorty.login.presenter.LoginPresenter;
 import com.platzigram.rickandmorty.login.presenter.LoginPresenterImpl;
@@ -22,11 +26,31 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
     private LoginPresenter loginPresenter;
     private ProgressBar progressBarLogin;
 
+    private static final String TAG = "LoginActivity";
+    private FirebaseAuth fireBaseAuth;
+    private FirebaseAuth.AuthStateListener authStateListener;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        //Este método va al método Json y se conecta con FireBase
+        fireBaseAuth = FirebaseAuth.getInstance();
+
+        authStateListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+                if (firebaseUser != null){
+                    Log.w("TAG", "Usuario logueado" + firebaseUser.getEmail());
+                    Log.w("TAG", "Usuario logueado" + firebaseUser.getDisplayName());
+                } else {
+                    Log.w("TAG", "Usuario NO logueado");
+                }
+            }
+        };
 
         username =  findViewById(R.id.username);
         password =  findViewById(R.id.password);
@@ -40,9 +64,15 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
 
                 //ToDo Hacer validaciones
 
-                loginPresenter.signIn(username.getText().toString(), password.getText().toString());
+
+                signIn(username.getText().toString(), password.getText().toString());
+
             }
         });
+    }
+
+    private void signIn(String username, String password) {
+        loginPresenter.signIn(username, password, this, fireBaseAuth);
     }
 
 
@@ -66,6 +96,18 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
     public void goHome() {
         Intent intent = new Intent(this, ContainerActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        fireBaseAuth.addAuthStateListener(authStateListener);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        fireBaseAuth.removeAuthStateListener(authStateListener);
     }
 
     @Override
@@ -96,4 +138,6 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
     public void loginError(String error) {
         Toast.makeText(this, getString(R.string.login_error) + " " + error, Toast.LENGTH_SHORT).show();
     }
+
+
 }

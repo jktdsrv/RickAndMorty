@@ -103,7 +103,6 @@ public class HomeFragment extends Fragment {
         String imageFileName = "JPEG_" + timeStamp + "_";
         File storageDir = getActivity().getExternalFilesDir(Environment.DIRECTORY_PICTURES);
         File photo = File.createTempFile(imageFileName, ".jpg", storageDir);
-        Log.d("vince1",photo.getAbsolutePath());
         photoPathTemp = "file:" + photo.getAbsolutePath();
         return photo;
     }

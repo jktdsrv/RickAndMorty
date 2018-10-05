@@ -31,9 +31,9 @@ public class CreateAccountActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create_account);
         showToolbar(getResources().getString(R.string.toolbar_title_createaccount),true);
 
-        btnJoinUs = findViewById(R.id.join_us);
-        tietEmail = findViewById(R.id.email);
-        tietPassword = findViewById(R.id.password_createaccount);
+        btnJoinUs    = (Button) findViewById(R.id.join_us);
+        tietEmail    = (TextInputEditText) findViewById(R.id.email);
+        tietPassword = (TextInputEditText) findViewById(R.id.password_createaccount);
 
 
 
@@ -46,6 +46,7 @@ public class CreateAccountActivity extends AppCompatActivity {
                 FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
                 if (firebaseUser != null){
                     Log.w("TAG", "Usuario logueado" + firebaseUser.getEmail());
+                    Log.w("TAG", "Usuario logueado" + firebaseUser.getDisplayName());
                 } else {
                     Log.w("TAG", "Usuario NO logueado");
                 }

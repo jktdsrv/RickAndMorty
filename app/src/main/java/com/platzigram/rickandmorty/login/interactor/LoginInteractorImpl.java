@@ -1,5 +1,8 @@
 package com.platzigram.rickandmorty.login.interactor;
 
+import android.app.Activity;
+
+import com.google.firebase.auth.FirebaseAuth;
 import com.platzigram.rickandmorty.login.presenter.LoginPresenter;
 import com.platzigram.rickandmorty.login.repository.LoginRepository;
 import com.platzigram.rickandmorty.login.repository.LoginRepositoryImpl;
@@ -16,7 +19,7 @@ public class LoginInteractorImpl implements LoginInteractor{
     }
 
     @Override
-    public void signIn(String username, String password) {
-        loginRepository.signIn(username, password);
+    public void signIn(String username, String password, Activity activity, FirebaseAuth firebaseAuth) {
+        loginRepository.signIn(username, password, activity, firebaseAuth);
     }
 }
