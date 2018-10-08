@@ -111,7 +111,6 @@ public class HomeFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_CAMERA && resultCode == getActivity().RESULT_OK){
-            Log.d("vince2", "CAMERA OK!! :)");
             Intent intent = new Intent(getActivity(), NewPostActivity.class);
             intent.putExtra("PHOTO_PATH_TEMP", photoPathTemp);
             startActivity(intent);
@@ -120,7 +119,7 @@ public class HomeFragment extends Fragment {
 
     public ArrayList<Picture> buildPictures(){
         ArrayList<Picture> pictures = new ArrayList<>();
-        pictures.add(new Picture("http://static.shoplightspeed.com/shops/609903/files/002580469/my-dog-small-weimaraner.jpg","Vincent Restrepo","4 días","3 Me Gusta"));
+        pictures.add(new Picture("https://firebasestorage.googleapis.com/v0/b/rickandmorty-5ec03.appspot.com/o/postImages%2FJPEG_20181008_16-57-25_1048516241.jpg?alt=media&token=4ea73248-d679-4d3a-8e1e-19370aa80675","Vincent Restrepo","4 días","3 Me Gusta"));
         pictures.add(new Picture("http://static.shoplightspeed.com/shops/609903/files/002575392/holiday-scarf-s.jpg","Julián González","2 días","10 Me Gusta"));
         pictures.add(new Picture("https://images.freeimages.com/images/large-previews/981/cow-1380252.jpg","Carlos Sánchez","6 días","5 Me Gusta"));
         return pictures;

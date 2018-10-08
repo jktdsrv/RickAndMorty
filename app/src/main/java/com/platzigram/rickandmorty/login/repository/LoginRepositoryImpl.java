@@ -1,6 +1,8 @@
 package com.platzigram.rickandmorty.login.repository;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -21,12 +23,19 @@ public class LoginRepositoryImpl implements LoginRepository {
     }
 
     @Override
-    public void signIn(String name, String password, Activity activity, FirebaseAuth firebaseAuth) {
+    public void signIn(String name, String password, final Activity activity, FirebaseAuth firebaseAuth) {
 
         firebaseAuth.signInWithEmailAndPassword(name,password).addOnCompleteListener(activity, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
+                    FirebaseUser user = task.getResult().getUser();
+                    SharedPreferences preferences = activity.getSharedPreferences("USER", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putString("email", user.getEmail());
+                    editor.putString("name", user.getDisplayName());
+                    editor.apply();
+
                     loginPresenter.loginSuccess();
                 } else {
                     loginPresenter.loginFailed("Ocurrió un error");

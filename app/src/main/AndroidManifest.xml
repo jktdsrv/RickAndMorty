@@ -42,7 +42,7 @@
                 android:value=".login.view.LoginActivity" />
         </activity>
         <activity android:name=".view.ContainerActivity" />
-        <activity android:name=".view.PictureDetailActivity">
+        <activity android:name=".post.view.PictureDetailActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".view.ContainerActivity" />

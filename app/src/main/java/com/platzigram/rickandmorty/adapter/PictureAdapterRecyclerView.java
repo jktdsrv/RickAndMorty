@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 import com.platzigram.rickandmorty.R;
 import com.platzigram.rickandmorty.model.Picture;
-import com.platzigram.rickandmorty.view.PictureDetailActivity;
+import com.platzigram.rickandmorty.post.view.PictureDetailActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;

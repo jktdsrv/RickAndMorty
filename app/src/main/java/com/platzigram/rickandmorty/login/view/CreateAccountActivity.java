@@ -20,6 +20,7 @@ import com.platzigram.rickandmorty.R;
 
 public class CreateAccountActivity extends AppCompatActivity {
 
+    private static final String TAG = "CreateAccountActivity";
     private FirebaseAuth fireBaseAuth;
     private FirebaseAuth.AuthStateListener authStateListener;
     private Button btnJoinUs;
@@ -45,7 +46,7 @@ public class CreateAccountActivity extends AppCompatActivity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
                 if (firebaseUser != null){
-                    Log.w("TAG", "Usuario logueado" + firebaseUser.getEmail());
+                    Log.w(TAG, "Usuario logueado" + firebaseUser.getEmail());
                     Log.w("TAG", "Usuario logueado" + firebaseUser.getDisplayName());
                 } else {
                     Log.w("TAG", "Usuario NO logueado");
